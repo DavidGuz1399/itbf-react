@@ -15,6 +15,7 @@ export const AddTypeRoom = ({ hotel }) => {
     })
     const [typeRoom, setTypeRoom] = useState('Estandar')
     const [accommodations, setAccommodation] = useState(['Sencilla', 'Doble'])
+    //Valido cuando cambia el tipo de habitacion para la lista de acomodacion
     useEffect(() => {
         if (typeRoom == 'Estandar') {
             setAccommodation(['Sencilla', 'Doble'])
@@ -30,6 +31,7 @@ export const AddTypeRoom = ({ hotel }) => {
     const addTypeRoom = (event) => {
         event.preventDefault();
         const { cantidad, tipo_habitacion, acomodacion } = room
+        //Valido que ningun campo este vacio
         if (!cantidad || !tipo_habitacion || !acomodacion) {
             Swal.fire('Validacion', 'Faltan campos por llenar', 'error')
             return;
@@ -46,6 +48,7 @@ export const AddTypeRoom = ({ hotel }) => {
         })
 
     }
+    //Verifico el cambio de los input
     const onFormChanged = ({ target }) => {
         const { name, value } = target;
         if (name == 'tipo_habitacion') {

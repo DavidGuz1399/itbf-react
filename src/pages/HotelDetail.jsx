@@ -10,6 +10,7 @@ export const HotelDetail = () => {
     const [hotel, sethotel] = useState({})
     useEffect(() => {
         getHotelById(id).then(res => {
+            //Obtengo el hotel de la actual pagina
             sethotel(res)
         })
     }, [])
