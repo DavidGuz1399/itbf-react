@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import { useHotel } from '../hooks'
+import { useNavigate } from 'react-router-dom';
 
 export const HotelCreate = () => {
+    const navigate = useNavigate();
     const { createHotel } = useHotel();
     const [hotel, setHotel] = useState({
         nombre: '',
         direccion: '',
-        ciudad: 'Bogota',
+        ciudad: '',
         nit: '',
         numero_habitaciones: 0
     })
     const createHotelForm = (event) => {
         event.preventDefault();
         createHotel(hotel)
-
+        navigate('/hotels')
     }
     const onFormChanged = ({ target }) => {
         const { name, value } = target;
@@ -21,6 +23,7 @@ export const HotelCreate = () => {
             ...hotel,
             [name]: value
         });
+
     }
     return (
         <>

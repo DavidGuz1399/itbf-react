@@ -33,7 +33,7 @@ export const HotelTable = () => {
                     {
                         hotels.length > 0 && hotels.map(hotel =>
                         (
-                            <tr key={hotel}>
+                            <tr key={hotel.id}>
                                 <th scope="row">{hotel.id}</th>
                                 <td>{hotel.nombre}</td>
                                 <td>{hotel.direccion}</td>
